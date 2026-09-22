@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | NoteNest</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    /* ===== PROFESSIONAL CHECKOUT ===== */
+
+.checkout-box {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+.order-summary {
+    border: 1px solid #eee;
+}
+
+.checkout-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 14px 0;
+}
+
+.checkout-total {
+    border-top: 2px solid #ddd;
+    padding-top: 18px;
+}
+
+.payment-btn {
+    transition: 0.2s;
+}
+
+.payment-btn:hover {
+    transform: translateY(-2px);
+}
+
+.checkout-note {
+    margin-top: 18px;
+    padding: 12px;
+    background: #f7f7fb;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+        .checkout-page {
+            max-width: 700px;
+            margin: auto;
+            padding: 80px 7%;
+        }
+
+        .checkout-page h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .checkout-page > p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .checkout-box {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #eee;
+        }
+
+        .order-summary {
+            background: #f7f7fb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .order-summary h2 {
+            margin-bottom: 15px;
+        }
+
+        .checkout-product {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .checkout-total {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .checkout-box label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .checkout-box input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .payment-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background: #6c4df6;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .payment-btn:hover {
+            background: #5638e8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #6c4df6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Note<span>Nest</span>
+    </div>
+
+</header>
+
+
+<main class="checkout-page">
+
+    <h1>Checkout</h1>
+
+    <p>Enter your details to continue.</p>
+
+
+    <div class="checkout-box">
+
+        <div class="order-summary">
+
+            <h2>Your Order</h2>
+
+            <div id="checkoutProducts">
+                Loading...
+            </div>
+
+            <div
+                class="checkout-total"
+                id="checkoutTotal">
+                Total: ₹0
+            </div>
+
+        </div>
+
+
+        <form onsubmit="startPayment(event)">
+
+            <label for="name">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="payment-btn"
+                id="paymentButton">
+                Continue to Payment
+            </button>
+<p class="checkout-note">
+    🔒 Your information is used only for order processing.
+</p>
+        </form>
+
+
+        <a
+            href="cart.html"
+            class="back-link">
+            ← Back to Cart
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="logo">
+        Note<span>Nest</span>
+    </div>
+
+    <p>
+        Digital resources made simple.
+    </p>
+
+    <small>
+        © 2026 NoteNest. All rights reserved.
+    </small>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+function loadCheckout() {
+
+    const cart = JSON.parse(
+        localStorage.getItem("noteNestCart") || "[]"
+    );
+
+    const products =
+        document.getElementById("checkoutProducts");
+
+    const total =
+        document.getElementById("checkoutTotal");
+
+    const button =
+        document.getElementById("paymentButton");
+
+
+    if (cart.length === 0) {
+
+        products.innerHTML = `
+            <p>Your cart is empty.</p>
+
+            <br>
+
+            <a href="index.html#products"
+               class="shop-btn">
+                Browse Products
+            </a>
+        `;
+
+        total.style.display = "none";
+
+        button.style.display = "none";
+
+        return;
+    }
+
+
+    let totalPrice = 0;
+
+
+    products.innerHTML = cart.map(item => {
+
+        const quantity = item.quantity || 1;
+
+totalPrice += Number(item.price) * quantity;
+
+        return `
+            <div class="checkout-product">
+
+                <strong>
+                    ${item.name}
+                </strong>
+
+<span>
+    — ₹${item.price} × ${item.quantity || 1}
+</span>
+            </div>
+        `;
+
+    }).join("");
+
+
+    total.innerHTML =
+        "Total: ₹" + totalPrice;
+
+
+    button.innerHTML =
+        "Continue to Payment — ₹" + totalPrice;
+}
+
+
+function startPayment(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    alert(
+        "Thank you, " +
+        name +
+        "! 🎉\n\n" +
+        "Email: " +
+        email +
+        "\n\n" +
+        "Demo order completed successfully!"
+    );
+
+    window.location.href = "download.html";
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadCheckout
+);
+
+</script>
+
+</body>
+
+</html>

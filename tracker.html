@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Job Application Tracker - NoteNest">
+
+    <title>Job Application Tracker | NoteNest</title>
+
+    <link rel="icon"
+          type="image/svg+xml"
+          href="./favicon.svg">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <style>
+
+        .product-page {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 7%;
+        }
+
+        .product-detail {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .product-detail-image {
+            background: #eeeaff;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .tracker-icon {
+            font-size: 100px;
+        }
+
+        .product-detail-info {
+            padding: 35px;
+        }
+
+        .product-detail-info h1 {
+            font-size: 40px;
+            margin: 10px 0 15px;
+        }
+
+        .product-detail-info p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .product-buttons button,
+        .product-buttons a {
+            display: inline-block;
+            padding: 13px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .buy-btn {
+            background: #eeeaff;
+            color: #6c4df6;
+            border: 1px solid #ddd;
+        }
+
+        .buy-btn:hover {
+            background: #ddd6ff;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .back-link {
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+
+            .product-page {
+                padding: 55px 5%;
+            }
+
+            .product-detail-info {
+                padding: 25px;
+            }
+
+            .product-detail-info h1 {
+                font-size: 30px;
+            }
+
+            .product-buttons {
+                flex-direction: column;
+            }
+
+            .product-buttons a,
+            .product-buttons button {
+                width: 100%;
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <h2 class="logo">
+        Note<span>Nest</span>
+    </h2>
+
+    <nav>
+
+        <a href="index.html#home">
+            Home
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
+        <a href="index.html#products">
+            Products
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+    </nav>
+
+    <a href="cart.html"
+       class="cart-btn">
+
+        🛒 Cart
+
+    </a>
+
+</header>
+
+
+<!-- ================= PRODUCT PAGE ================= -->
+
+<main class="product-page">
+
+    <a href="index.html#products"
+       class="secondary-btn back-link">
+
+        ← Back to Products
+
+    </a>
+
+
+    <div class="product-detail">
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-detail-image">
+
+            <div class="tracker-icon">
+                📋
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-detail-info">
+
+            <p class="product-category">
+                JOB RESOURCE
+            </p>
+
+            <h1>
+                Job Application Tracker
+            </h1>
+
+            <p>
+                Organize your job applications,
+                track application status and keep
+                important job details in one place.
+            </p>
+
+
+            <div class="product-price">
+                ₹79
+            </div>
+
+
+            <h3>
+                What's Included?
+            </h3>
+
+            <ul class="feature-list">
+
+                <li>
+                    ✔ Application tracking
+                </li>
+
+                <li>
+                    ✔ Company and job details
+                </li>
+
+                <li>
+                    ✔ Application status tracking
+                </li>
+
+                <li>
+                    ✔ Interview tracking
+                </li>
+
+                <li>
+                    ✔ Easy-to-use digital tracker
+                </li>
+
+            </ul>
+
+
+            <!-- BUTTONS -->
+
+            <div class="product-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="addToCart(
+                        'Job Application Tracker',
+                        79
+                    )">
+
+                    🛒 Add to Cart
+
+                </button>
+
+
+                <a
+                    href="checkout.html"
+                    class="buy-btn">
+
+                    Buy Now →
+
+                </a>
+
+
+                <a
+                    href="index.html#products"
+                    class="buy-btn">
+
+                    ← Back to Products
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        NoteNest
+    </h2>
+
+    <p>
+        Digital products for learning,
+        work and creativity.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="terms.html">
+            Terms & Conditions
+        </a>
+
+    </div>
+
+
+    <small>
+        © 2026 NoteNest. All rights reserved.
+    </small>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
