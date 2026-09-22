@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="NoteNest - Digital products, notes, resume templates, coding resources and project templates.">
+
+    <meta name="author"
+          content="NoteNest">
+
+    <title>NoteNest | Digital Products Store</title>
+
+    <link rel="icon"
+          type="image/svg+xml"
+          href="./favicon.svg">
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <h2 class="logo">
+        Note<span>Nest</span>
+    </h2>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="cart.html"
+       class="cart-btn">
+        🛒 Cart
+    </a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            DIGITAL PRODUCTS STORE
+        </p>
+
+        <h1>
+            Learn. Create.
+            <span>Grow.</span>
+        </h1>
+
+        <p class="hero-description">
+            Discover useful digital products including
+            study notes, resume templates, coding resources,
+            project templates, planners and more.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products"
+               class="primary-btn">
+                Explore Products
+            </a>
+
+            <a href="#categories"
+               class="secondary-btn">
+                Browse Categories
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section id="categories"
+         class="section">
+
+    <p class="section-label">
+        CATEGORIES
+    </p>
+
+    <h2>
+        Explore Our
+        <span>Categories</span>
+    </h2>
+
+
+    <div class="category-grid">
+
+        <!-- STUDY -->
+
+        <div class="category-card"
+             onclick="filterProducts('study')">
+
+            <div class="icon">
+                📚
+            </div>
+
+            <h3>
+                Study Notes
+            </h3>
+
+            <p>
+                Helpful notes and revision resources
+                for students.
+            </p>
+
+        </div>
+
+
+        <!-- RESUME -->
+
+        <div class="category-card"
+             onclick="filterProducts('resume')">
+
+            <div class="icon">
+                📄
+            </div>
+
+            <h3>
+                Resume Templates
+            </h3>
+
+            <p>
+                Professional resume templates
+                for job seekers.
+            </p>
+
+        </div>
+
+
+        <!-- CODING -->
+
+        <div class="category-card"
+             onclick="filterProducts('coding')">
+
+            <div class="icon">
+                💻
+            </div>
+
+            <h3>
+                Coding Resources
+            </h3>
+
+            <p>
+                Cheat sheets and useful coding
+                resources for developers.
+            </p>
+
+        </div>
+
+
+        <!-- PROJECT -->
+
+        <div class="category-card"
+             onclick="filterProducts('project')">
+
+            <div class="icon">
+                🚀
+            </div>
+
+            <h3>
+                Project Templates
+            </h3>
+
+            <p>
+                Ready-to-use templates for
+                website projects.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section id="products"
+         class="section">
+
+    <p class="section-label">
+        OUR STORE
+    </p>
+
+    <h2>
+        Featured
+        <span>Products</span>
+    </h2>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="🔍 Search products..."
+            onkeyup="searchProducts()">
+
+    </div>
+
+
+    <!-- SHOW ALL -->
+
+    <div style="text-align:center; margin-bottom:30px;">
+
+        <button
+            class="secondary-btn"
+            onclick="showAllProducts()">
+
+            Show All Products
+
+        </button>
+
+    </div>
+
+
+    <div class="product-grid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                📄
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    RESUME
+                </p>
+
+                <h3>
+                    Modern Resume Template
+                </h3>
+
+                <p>
+                    A clean and professional resume
+                    template for job applications.
+                </p>
+
+                <div class="product-footer">
+
+                    <strong>
+                        ₹99
+                    </strong>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="primary-btn"
+                            onclick="addToCart('Modern Resume Template', 99)">
+
+                            Add to Cart
+
+                        </button>
+
+                        <a href="product.html"
+                           class="buy-btn">
+
+                            Buy Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                📚
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    STUDY
+                </p>
+
+                <h3>
+                    Student Notes Bundle
+                </h3>
+
+                <p>
+                    Useful study notes and revision
+                    resources for students.
+                </p>
+
+                <div class="product-footer">
+
+                    <strong>
+                        ₹149
+                    </strong>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="primary-btn"
+                            onclick="addToCart('Student Notes Bundle', 149)">
+
+                            Add to Cart
+
+                        </button>
+
+                        <a href="notes.html"
+                           class="buy-btn">
+
+                            Buy Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                💻
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    CODING
+                </p>
+
+                <h3>
+                    HTML & CSS Cheat Sheet
+                </h3>
+
+                <p>
+                    Quick reference guide for
+                    HTML and CSS developers.
+                </p>
+
+                <div class="product-footer">
+
+                    <strong>
+                        ₹79
+                    </strong>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="primary-btn"
+                            onclick="addToCart('HTML & CSS Cheat Sheet', 79)">
+
+                            Add to Cart
+
+                        </button>
+
+                        <a href="coding.html"
+                           class="buy-btn">
+
+                            Buy Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                🚀
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    PROJECT
+                </p>
+
+                <h3>
+                    Website Project Template
+                </h3>
+
+                <p>
+                    Ready-to-use frontend project
+                    template for website development.
+                </p>
+
+                <div class="product-footer">
+
+                    <strong>
+                        ₹149
+                    </strong>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="primary-btn"
+                            onclick="addToCart('Website Project Template', 149)">
+
+                            Add to Cart
+
+                        </button>
+
+                        <a href="project.html"
+                           class="buy-btn">
+
+                            Buy Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                📅
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    STUDY
+                </p>
+
+                <h3>
+                    Exam Revision Planner
+                </h3>
+
+                <p>
+                    Organize your study schedule
+                    and exam preparation.
+                </p>
+
+                <div class="product-footer">
+
+                    <strong>
+                        ₹59
+                    </strong>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="primary-btn"
+                            onclick="addToCart('Exam Revision Planner', 59)">
+
+                            Add to Cart
+
+                        </button>
+
+                        <a href="planner.html"
+                           class="buy-btn">
+
+                            Buy Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                📋
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    RESUME
+                </p>
+
+                <h3>
+                    Job Application Tracker
+                </h3>
+
+                <p>
+                    Track your job applications,
+                    interviews and follow-ups.
+                </p>
+
+                <div class="product-footer">
+
+                    <strong>
+                        ₹79
+                    </strong>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="primary-btn"
+                            onclick="addToCart('Job Application Tracker', 79)">
+
+                            Add to Cart
+
+                        </button>
+
+                        <a href="tracker.html"
+                           class="buy-btn">
+
+                            Buy Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY NOTENEST ================= -->
+
+<section class="section">
+
+    <p class="section-label">
+        WHY NOTENEST
+    </p>
+
+    <h2>
+        Simple. Useful.
+        <span>Affordable.</span>
+    </h2>
+
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <h3>
+                Instant Access
+            </h3>
+
+            <p>
+                Get useful digital resources
+                without waiting for shipping.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <h3>
+                Affordable
+            </h3>
+
+            <p>
+                Practical digital products
+                at student-friendly prices.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                Useful Resources
+            </h3>
+
+            <p>
+                Resources designed to help
+                you learn and work better.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="icon">
+                🔒
+            </div>
+
+            <h3>
+                Simple Shopping
+            </h3>
+
+            <p>
+                Easy product browsing,
+                cart and checkout experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact"
+         class="section">
+
+    <p class="section-label">
+        CONTACT
+    </p>
+
+    <h2>
+        Get In
+        <span>Touch</span>
+    </h2>
+
+
+    <div class="product-card">
+
+        <div class="product-info">
+
+            <h3>
+                Have a question?
+            </h3>
+
+            <p>
+                For product questions, support
+                or other enquiries, contact us.
+            </p>
+
+            <br>
+
+            <strong>
+                sandeepp09sidhu@gmail.com
+            </strong>
+
+            <br><br>
+
+            <a
+                href="mailto:sandeepp09sidhu@gmail.com"
+                class="primary-btn">
+
+                Email Us
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        NoteNest
+    </h2>
+
+    <p>
+        Digital products for learning,
+        work and creativity.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="terms.html">
+            Terms & Conditions
+        </a>
+
+    </div>
+
+
+    <small>
+        © 2026 NoteNest. All rights reserved.
+    </small>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
